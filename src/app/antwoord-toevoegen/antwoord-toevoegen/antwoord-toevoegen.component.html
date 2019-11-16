@@ -1,0 +1,20 @@
+<h3>{{naamPoll}}</h3>
+<ul>
+    <li *ngFor="let a of (antwoordenPoll)">
+           {{a.antwoordText}}
+            <button mat-button color="warn" (click)="verwijderAntwoord(a.antwoordID)">Remove</button>
+
+    </li>
+</ul>
+
+<form [formGroup]="antwoordenForm" (ngSubmit)="onSubmitAntwoord()">
+    <p>
+        <mat-form-field>
+            <input matInput type="text" formControlName="AntwoordText" placeholder="Uitleg" />
+        </mat-form-field>
+        <button mat-button color="primary" type="submit" [disabled]="!antwoordenForm.valid">Add answer</button>
+    </p>
+    
+    <button mat-raised-button color="primary" type="button" (click)="vriendenToevoegen()">Add frends to poll</button> |
+    <button mat-raised-button color="primary" type="button" (click)="naarPollMaken()">Back</button>
+</form>

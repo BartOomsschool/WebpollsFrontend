@@ -1,0 +1,10 @@
+<form [formGroup]="pollMakenForm" (ngSubmit)="onSubmitPoll()">
+    <p>
+        <mat-form-field>
+            <input matInput type="text" formControlName="Naam" placeholder="Uitleg" />
+        </mat-form-field>
+    </p>
+    <button mat-raised-button color="primary" type="submit"
+        [disabled]="!pollMakenForm.valid || submitted">Add</button> |
+        <button mat-raised-button color="primary" type="button" (click)="naarHome()">Annuleren</button>
+</form>

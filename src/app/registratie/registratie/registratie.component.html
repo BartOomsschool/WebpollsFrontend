@@ -1,0 +1,38 @@
+<form [formGroup]="registratieForm" (ngSubmit)="onSubmitRegistratie()">
+    <p>
+        <mat-form-field>
+            <input matInput type="text" formControlName="LastName" placeholder="Naam" />
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field>
+            <input matInput type="email" formControlName="FirstName" placeholder="Voornaam" />
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field>
+            <input matInput type="text" formControlName="UserName" placeholder="Username" />
+            <!--(ngModelChange)="onChangeUserNaam()"-->
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field>
+            <input matInput type="email" formControlName="Email" placeholder="Email" />
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field>
+            <input matInput type="password" formControlName="Password" placeholder="Password" />
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field>
+            <input matInput type="password" formControlName="PasswordCheck" placeholder="Bevestig password"
+                (ngModelChange)="passwordCheck()" />
+        </mat-form-field>
+    </p>
+    <button mat-raised-button color="primary" type="submit"
+        [disabled]="!registratieForm.valid || submitted || onChangeUserName || !onChangePassword">Register</button>
+    |
+    <a routerLink="/logger"><button mat-raised-button color="primary" type="button">Annuleren</button></a>
+</form>

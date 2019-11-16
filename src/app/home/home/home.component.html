@@ -1,0 +1,20 @@
+<ul>
+    <li *ngFor="let v of (verzoeken)">
+        {{v.userName}}
+        <button mat-button color="warn" (click)="verwijderVerzoek(v)">ignore</button>
+        <button mat-button color="warn" (click)="accepteerVerzoek(v)">add</button>
+
+    </li>
+
+</ul>
+
+<ul>
+    <li *ngFor="let p of (polls)">
+        <button mat-button color="warn" (click)="overzichtPoll(p.pollID)">{{p.naam}}</button>
+        <button mat-button color="warn" (click)="stemOpPoll(p.pollID)" [disabled]="p.gestemd">stemmen</button>
+        <button mat-button color="warn" (click)="deletePoll(p.pollID)">delete</button>
+    </li>
+</ul>
+
+<p><button mat-button color="warn" (click)="aanmakenPoll()">Create poll</button></p>
+<p><button mat-button color="warn" (click)="VriedenLijst()">Add Frends</button></p>

@@ -1,0 +1,9 @@
+
+
+<ul>
+    <li *ngFor="let a of (antwoorden)">
+            <p>{{a.antwoordText}} {{a.aantalGestemd}}</p>
+    </li>
+</ul>
+
+<button mat-raised-button color="primary" type="button" (click)="naarHome()">To Home</button>

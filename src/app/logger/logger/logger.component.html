@@ -1,0 +1,14 @@
+<form [formGroup]="loggerForm" (ngSubmit)="onSubmitLogger()">
+    <p>
+        <mat-form-field>
+            <input matInput type="text" formControlName="UserName" placeholder="Username" />
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field>
+            <input matInput type="password" formControlName="Password" placeholder="Password"/>
+        </mat-form-field>
+    </p>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!loggerForm.valid || submitted">Log in</button> | 
+            <a routerLink="/registratie"><button mat-raised-button color="primary" type="button">Register</button></a>
+</form>

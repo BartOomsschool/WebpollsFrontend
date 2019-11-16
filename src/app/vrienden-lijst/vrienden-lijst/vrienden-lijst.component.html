@@ -1,0 +1,17 @@
+<p>Frends:</p>
+<ul>
+    <li *ngFor="let v of (vrienden)">
+        {{v.userName}}
+        <button mat-button color="warn" (click)="verwijderVriend(v.vriendID)">delete frend</button>
+
+    </li>
+
+</ul>
+<p>People you might know.</p>
+<ul>
+    <li *ngFor="let nv of (nietVrienden)">
+        {{nv.userName}}
+        <button mat-button color="warn" (click)="toevoegenVriend(nv.vriendID)">Add</button>
+    </li>
+</ul>
+<button mat-raised-button color="primary" type="button" (click)="naarHome()">Back to home</button>
