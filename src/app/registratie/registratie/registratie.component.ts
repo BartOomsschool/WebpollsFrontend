@@ -31,8 +31,12 @@ export class RegistratieComponent implements OnInit {
 
   onSubmitRegistratie() {
     this.submitted = true;
-    this.router.navigate(['/logger']);
+    this.router.navigate(['']);
     this._userService.addUser(this.registratieForm.value).subscribe();
+  }
+
+  Annuleren(){
+    this.router.navigate(['']);
   }
 
 

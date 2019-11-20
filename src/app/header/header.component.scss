@@ -1,3 +1,14 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+mat-toolbar{
+    height: 100px;
+    background-color:lightblue;
+}
+
+
 button {
     margin-left: 90%;
     margin-right: 10px;
@@ -5,4 +16,3 @@ button {
     position: absolute;
     z-index: 100;
 }
-

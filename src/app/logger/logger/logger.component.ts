@@ -17,15 +17,15 @@ export class LoggerComponent implements OnInit {
   });
   
 
-  constructor(private fb: FormBuilder, private router : Router, private _authenticateService : AuthenticateService) { }
+  constructor(private fb: FormBuilder, private router: Router, private _authenticateService: AuthenticateService) { }
 
   submitted: boolean = false;
 
   onSubmitLogger() {
-    this.submitted = true
+    this.submitted = true;
     this._authenticateService.authenticate(this.loggerForm.value).subscribe(result => {
-      localStorage.setItem("token",result.token);
-      localStorage.setItem("userID", result.UserID + "");
+      localStorage.setItem('token', result.token);
+      localStorage.setItem('userID', result.UserID + '');
       this.router.navigate(['/home']);
     }); 
   }

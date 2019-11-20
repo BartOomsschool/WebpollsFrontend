@@ -13,7 +13,7 @@ import { OverzichtStemmenComponent } from './overzicht-stemmen/overzicht-stemmen
 
 
 const appRoutes: Routes = [
-  { path: 'logger', component: LoggerComponent },
+  { path: '', component: LoggerComponent },
   { path: 'registratie', component: RegistratieComponent },
   { path: 'home', component: HomeComponent },
   { path: 'pollMaken', component: PollMakenComponent },

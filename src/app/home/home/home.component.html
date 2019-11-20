@@ -1,5 +1,8 @@
+
 <ul>
     <li *ngFor="let v of (verzoeken)">
+
+        
         {{v.userName}}
         <button mat-button color="warn" (click)="verwijderVerzoek(v)">ignore</button>
         <button mat-button color="warn" (click)="accepteerVerzoek(v)">add</button>

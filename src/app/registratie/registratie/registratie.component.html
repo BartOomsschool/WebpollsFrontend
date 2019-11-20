@@ -33,6 +33,5 @@
     </p>
     <button mat-raised-button color="primary" type="submit"
         [disabled]="!registratieForm.valid || submitted || onChangeUserName || !onChangePassword">Register</button>
-    |
-    <a routerLink="/logger"><button mat-raised-button color="primary" type="button">Annuleren</button></a>
+    | <button mat-raised-button color="primary" type="button" (click)="Annuleren()">Annuleren</button>
 </form>
