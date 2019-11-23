@@ -3,25 +3,28 @@ import { Poll } from '../../models/poll.model';
 import { PollService } from '../../services/poll/poll.service';
 import { Router } from '@angular/router';
 import { VriendService } from '../../services/vriend/vriend.service';
-import { VriendUserService } from '../../services/vriendUser/vriend-user.service';
 import { Vriend } from 'src/app/models/vriend.model';
-import { StemService } from 'src/app/services/stem/stem.service';
-import { map } from 'rxjs/operators';
+import { HeaderComponent } from 'src/app/header/header.component';
 
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [PollService, VriendService, VriendUserService]
+  providers: [PollService, VriendService]
 })
 export class HomeComponent implements OnInit {
 
   polls: Poll[];
+  gestemdPoll: Poll[] = [];
+  nieuwPoll: Poll[] = [];
   verzoeken: Vriend[];
+  lengteVerzoeken: number;
+  lengteNieuwPoll: number;
+  lengteGestemdPoll: number;
   test = false;
 
-  constructor(private _pollService: PollService, private router: Router, private _vriendenService: VriendService, private _vriendenUserService: VriendUserService, private _stemService: StemService) {
+  constructor(private _pollService: PollService, private router: Router, private _vriendenService: VriendService) {
     this.getPolls();
     this.getVerzoeken();
   }
@@ -29,9 +32,19 @@ export class HomeComponent implements OnInit {
   getPolls() {
     this._pollService.getPolls().subscribe(p => {
       this.polls = p;
-      console.log('polls: ',this.polls);
+
+      this.polls.map(poll => {
+            if(poll.gestemd){
+              this.gestemdPoll.push(poll);
+            }
+            else {
+              this.nieuwPoll.push(poll);
+            }
+      });
+      this.lengteNieuwPoll = this.nieuwPoll.length;
+      this.lengteGestemdPoll = this.gestemdPoll.length;
+      console.log('polls: ', this.polls);
     });
-    
   }
   overzichtPoll(pollID: number){
     this.router.navigate(['overzichtStemmen', pollID]);
@@ -59,6 +72,7 @@ export class HomeComponent implements OnInit {
   getVerzoeken() {
     this._vriendenService.getVerzoeken().subscribe(result => {
       this.verzoeken = result;
+      this.lengteVerzoeken = result.length;
       console.log(result);
     });
   }

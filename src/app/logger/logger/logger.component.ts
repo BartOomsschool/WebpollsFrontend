@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
 import {AuthenticateService} from '../../services/authenticatie/authenticate.service';
 
+
 @Component({
   selector: 'app-logger',
   templateUrl: './logger.component.html',
@@ -27,7 +28,7 @@ export class LoggerComponent implements OnInit {
       localStorage.setItem('token', result.token);
       localStorage.setItem('userID', result.UserID + '');
       this.router.navigate(['/home']);
-    }); 
+    });
   }
 
 
@@ -35,10 +36,10 @@ export class LoggerComponent implements OnInit {
   ngOnInit() {
     this.loggerForm.valueChanges.subscribe(val => {
       console.log(val);
-    })
+    });
     this.loggerForm.get('UserName').valueChanges.subscribe(val => {
       console.log(val);
-    })
+    });
   }
 
   setForm() {

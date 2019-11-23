@@ -9,3 +9,4 @@ $helloworld-app-warn: mat-palette($mat-red); //color palette for warn
 $helloworld-app-theme: mat-light-theme($helloworld-app-primary, $helloworld-app-accent, $helloworld-app-warn); //creates the theme object
 
 @include angular-material-theme($helloworld-app-theme); //theme object is included in the Angular Material Theme and will now be used throughout the application 
+

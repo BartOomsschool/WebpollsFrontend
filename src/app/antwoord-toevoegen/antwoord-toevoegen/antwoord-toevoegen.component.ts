@@ -18,6 +18,7 @@ export class AntwoordToevoegenComponent implements OnInit {
   naamPoll: string;
   onsubmit: boolean = false;
   antwoordenPoll: Antwoord[];
+  lengteAntwoordenPoll: number;
 
   antwoordenForm = this.fb.group({
     AntwoordText: ['', [Validators.required, Validators.minLength(2)]],
@@ -76,6 +77,7 @@ export class AntwoordToevoegenComponent implements OnInit {
     console.log('Dit is de Id',this.pollID);
     this._antwoordService.getAntwoordenPoll(this.pollID).subscribe(a => {
       this.antwoordenPoll = a;
+      this.lengteAntwoordenPoll = a.length;
       console.log('Dit zijn de antwoorden', this.antwoordenPoll);
     })    
   }

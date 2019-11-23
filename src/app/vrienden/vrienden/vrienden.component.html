@@ -1,18 +1,17 @@
 <h2>{{naamPoll}}</h2>
-<ul>
-    <li *ngFor="let v of (vriendenLijstMetPoll)">
-        {{v.userName}}
-        <button mat-button color="warn" (click)="vriendVerwijderenVanPoll(v)">Remove</button>
 
-    </li>
+<mat-list-item role="listitem" *ngFor="let v of (vriendenLijstMetPoll)">
+    {{v.userName}}
+    <button mat-button color="warn" (click)="vriendVerwijderenVanPoll(v)">Remove</button>
 
-</ul>
-<ul>
-    <li *ngFor="let v of (vriendenLijstZonderPoll)">
-        {{v.userName}}
-        <button mat-button color="warn" (click)="vriendToevoegenAanPoll(v)">Add</button>
-    </li>
+</mat-list-item>
 
-</ul>
+
+<mat-list-item role="listitem" *ngFor="let v of (vriendenLijstZonderPoll)">
+    {{v.userName}}
+    <button mat-button color="warn" (click)="vriendToevoegenAanPoll(v)">Add</button>
+</mat-list-item>
+
+
 
 <button mat-button color="warn" (click)="naarHome()">To home</button>
