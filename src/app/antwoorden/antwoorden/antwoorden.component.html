@@ -1,9 +1,0 @@
-<h3>{{pollNaam}}</h3>
-
-
-<mat-list-item role="listitem" *ngFor="let a of (antwoorden)">
-        <button mat-button color="warn" (click)="stemToevoegen(a)">{{a.antwoordText}}</button>
-
-</mat-list-item>
-
-<button mat-raised-button color="primary" type="button" (click)="naarHome()">Back</button>

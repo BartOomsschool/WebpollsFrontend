@@ -18,7 +18,7 @@ export class PollService {
 
   getPoll(pollID: number):Observable<Poll> {
     return this.http.get<Poll>("https://localhost:44314/api/poll/" + pollID);
-  }  
+  }
 
   addPoll(poll: Poll) {
       return this.http.post<Poll>("https://localhost:44314/api/poll", poll);
@@ -31,5 +31,4 @@ export class PollService {
   deletePoll(pollID: number) {
       return this.http.delete<Poll>("https://localhost:44314/api/poll/" + pollID);
   }
-  
 }

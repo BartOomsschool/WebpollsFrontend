@@ -19,10 +19,6 @@ export class StemService {
     return this.http.get<Stem[]>("https://localhost:44314/api/stem/stemmenPerAntwoord/" + antwoordID);
 }
 
-  getStem(pollID: number): Observable<Stem> {
-    return this.http.get<Stem>("https://localhost:44314/api/Stem/zoekStemUser/" + pollID);
-}
-
   addStem(stemID: number) {
       return this.http.post<Stem>("https://localhost:44314/api/stem", stemID);
   }
