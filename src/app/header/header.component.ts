@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticateService } from '../services/authenticatie/authenticate.service';
 
 @Component({
   selector: 'app-header',
@@ -11,18 +12,21 @@ export class HeaderComponent implements OnInit {
 
   token: string;
 
-  constructor(private router: Router) {
-    this.token = localStorage.getItem('token');
+  constructor(private router: Router, private _authenticateService : AuthenticateService) {
+
    }
+
+
 
   Uitloggen(){
     this.router.navigate(['']);
     localStorage.clear();
     this.token = null;
   }
-
   ngOnInit() {
-    this.token = localStorage.getItem('token');
+    this._authenticateService.isLoggedin.subscribe(e => {
+      this.token = localStorage.getItem('token');
+     });
   }
 
 }

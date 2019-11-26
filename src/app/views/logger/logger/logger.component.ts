@@ -27,6 +27,7 @@ export class LoggerComponent implements OnInit {
     this._authenticateService.authenticate(this.loggerForm.value).subscribe(result => {
       localStorage.setItem('token', result.token);
       localStorage.setItem('userID', result.UserID + '');
+      this._authenticateService.isLoggedin.next(result.token ? true : false);
       this.router.navigate(['/home']);
     });
   }
