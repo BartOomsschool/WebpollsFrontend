@@ -13,36 +13,35 @@ import { Router } from '@angular/router';
 export class PollMakenComponent implements OnInit {
 
   pollMakenForm = this.fb.group({
-    Naam: ['', Validators.required]
-    }); 
+    Naam: ['', [Validators.required, Validators.minLength(2)]]
+    });
 
-    constructor(private fb: FormBuilder, private _pollService : PollService, private router : Router
-      // private _authenticateService : AuthenticateService
-      ) { } 
+    constructor(private fb: FormBuilder, private _pollService: PollService, private router: Router) { }
 
 
-  submitted : boolean = false;
+  submitted: boolean = false;
 
+// Deze functie stuurt een Poll door en navigeert vervolgens naar de antwoordenToevoegen component.
   onSubmitPoll() {
     this.submitted = true;
-    this._pollService.addPoll(this.pollMakenForm.value).subscribe(result => {this.router.navigate(['antwoordenToevoegen', result.pollID]);console.log(result) ;})   
-    
-    
+    this._pollService.addPoll(this.pollMakenForm.value).subscribe(result => {
+      this.router.navigate(['antwoordenToevoegen', result.pollID]);
+      console.log(result);
+  });
   }
 
-  
+// Deze functie navigeert naar de home component.
   naarHome(){
     this.router.navigate(['home']);
   }
 
- 
 
   ngOnInit() {
-    this.pollMakenForm.valueChanges.subscribe(val => {
-      console.log(val);
-      }) 
-      this.pollMakenForm.get('Naam').valueChanges.subscribe(val => {
-        console.log(val);
-        }) 
+//    this.pollMakenForm.valueChanges.subscribe(val => {
+//     console.log(val);
+//      }) 
+//      this.pollMakenForm.get('Naam').valueChanges.subscribe(val => {
+//        console.log(val);
+//        }) 
   }
 }

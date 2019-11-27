@@ -11,8 +11,8 @@
     </p>
     <p>
         <mat-form-field>
-            <input matInput type="text" formControlName="UserName" placeholder="Username" />
-            <!--(ngModelChange)="onChangeUserNaam()"-->
+            <input matInput type="text" formControlName="UserName" placeholder="Username" (ngModelChange)="onChangeUserNaam()"/>
+     
         </mat-form-field>
     </p>
     <p>
@@ -27,11 +27,11 @@
     </p>
     <p>
         <mat-form-field>
-            <input matInput type="password" formControlName="PasswordCheck" placeholder="Bevestig password"
+            <input matInput type="password" formControlName="PasswordCheck" placeholder="Confirm password"
                 (ngModelChange)="passwordCheck()" />
         </mat-form-field>
     </p>
     <button mat-raised-button color="primary" type="submit"
-        [disabled]="!registratieForm.valid || submitted || onChangeUserName || !onChangePassword">Register</button>
+        [disabled]="!registratieForm.valid || submitted || !onChangeUserName || !onChangePassword">Register</button>
     | <button mat-raised-button color="primary" type="button" (click)="Annuleren()">Annuleren</button>
 </form>

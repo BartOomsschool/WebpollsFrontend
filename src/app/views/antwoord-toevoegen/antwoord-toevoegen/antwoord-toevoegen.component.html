@@ -10,7 +10,7 @@
 <form [formGroup]="antwoordenForm" (ngSubmit)="onSubmitAntwoord()">
     <p>
         <mat-form-field>
-            <input matInput type="text" formControlName="AntwoordText" placeholder="Uitleg" />
+            <input matInput type="text" formControlName="AntwoordText" placeholder="Answer" />
         </mat-form-field>
         <button mat-button color="primary" type="submit" [disabled]="!antwoordenForm.valid">Add answer</button>
     </p>

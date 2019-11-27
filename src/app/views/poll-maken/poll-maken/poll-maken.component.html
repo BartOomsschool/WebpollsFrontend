@@ -1,7 +1,8 @@
+<h2>Title of the Poll?</h2>
 <form [formGroup]="pollMakenForm" (ngSubmit)="onSubmitPoll()">
     <p>
         <mat-form-field>
-            <input matInput type="text" formControlName="Naam" placeholder="Uitleg" />
+            <input matInput type="text" formControlName="Naam" placeholder="Title" />
         </mat-form-field>
     </p>
     <button mat-raised-button color="primary" type="submit"

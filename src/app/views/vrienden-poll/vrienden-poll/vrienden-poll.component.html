@@ -7,13 +7,11 @@
 
 </mat-list-item>
 
-
+<p>Add your frends:</p>
 <mat-list-item role="listitem" *ngFor="let v of (vriendenLijstZonderPoll)">
     <div>{{v.userName}}
         <button mat-button color="warn" (click)="vriendToevoegenAanPoll(v)">Add</button>
     </div>
 </mat-list-item>
-
-
 
 <p><button mat-button color="warn" (click)="naarHome()">To home</button></p>

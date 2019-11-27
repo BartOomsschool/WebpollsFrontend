@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
     this.getVerzoeken();
   }
 
+  // Deze functie haalt alle polls op van de ingelogde gebruiker.
   getPolls() {
     this._pollService.getPolls().subscribe(p => {
       this.polls = p;
@@ -37,7 +38,7 @@ export class HomeComponent implements OnInit {
             if(poll.gestemd){
               this.gestemdPoll.push(poll);
             }
-            else {
+            else{
               this.nieuwPoll.push(poll);
             }
       });
@@ -46,10 +47,13 @@ export class HomeComponent implements OnInit {
       console.log('polls: ', this.polls);
     });
   }
+
+  // Deze functie navigeert naar de overZichtStemmen component.
   overzichtPoll(pollID: number){
     this.router.navigate(['overzichtStemmen', pollID]);
   }
-
+// Deze functie delete de volledig Poll wanneer de ingelogde user de admin is en delete de user van de Poll wanneer de user geen admin is van de poll.
+// Nadat deze functie wordt uitgevoerd worden ook de polls opnieuw opgevraagd.
   deletePoll(id: number) {
     this._pollService.deletePoll(id).subscribe(result => {
       this.gestemdPoll = [];
@@ -57,20 +61,20 @@ export class HomeComponent implements OnInit {
       this.getPolls();
     });
   }
-
+// Deze functie navigeert naar de antwoordenPoll component.
   stemOpPoll(id: number) {
-    this.router.navigate(['antwoorden', id]);
+    this.router.navigate(['antwoordenPoll', id]);
     console.log(id);
   }
-
+// Deze functie navigeert naar de pollMaken component.
   aanmakenPoll() {
     this.router.navigate(['pollMaken']);
   }
-
+// Deze functie navigeert naar de vriendenLijst component.
   VriedenLijst() {
     this.router.navigate(['vriendenLijst']);
   }
-
+// Deze functie haalt de vriendenverzoeken op van de ingelogde user.
   getVerzoeken() {
     this._vriendenService.getVerzoeken().subscribe(result => {
       this.verzoeken = result;
@@ -78,7 +82,7 @@ export class HomeComponent implements OnInit {
       console.log(result);
     });
   }
-
+// Deze functie voegt de vriend toe wanneer de ingelogde user het vriendenverzoek accepteert.
   accepteerVerzoek(vriend: Vriend) {
     console.log(vriend);
     this._vriendenService.accepteerVerzoek(vriend.vriendID, vriend).subscribe(result => {
@@ -86,9 +90,9 @@ export class HomeComponent implements OnInit {
       this.getVerzoeken();
     });
   }
-
+// Deze functie verwijdert de vriend wanneer de ingelogde user het vriendenverzoek verwijdert.
   verwijderVerzoek(vriend: Vriend) {
-    console.log("vriendId: ", vriend.vriendID);
+    console.log('vriendId: ', vriend.vriendID);
     this._vriendenService.verwijderVerzoek(vriend.vriendID).subscribe(result => {
       this.getVerzoeken();
     });

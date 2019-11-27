@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VriendenComponent } from './vrienden/vrienden.component';
+import { VriendenPollComponent } from './vrienden-poll/vrienden-poll.component';
 import { SharedModule } from '../../shared/shared.module';
 
 
 
 @NgModule({
-  declarations: [VriendenComponent],
+  declarations: [VriendenPollComponent],
   imports: [
     SharedModule
   ]
 })
-export class VriendenModule { }
+export class VriendenPollModule { }

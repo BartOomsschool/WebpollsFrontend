@@ -16,12 +16,13 @@ export class LoggerComponent implements OnInit {
     UserName: ['', Validators.required],
     Password: ['', [Validators.required, Validators.minLength(2)]]
   });
-  
 
   constructor(private fb: FormBuilder, private router: Router, private _authenticateService: AuthenticateService) { }
 
   submitted: boolean = false;
 
+  // Deze functie kijkt of de ingegeven user al bestaat.
+  // Vervolgens navigeert deze functie naar de home component.
   onSubmitLogger() {
     this.submitted = true;
     this._authenticateService.authenticate(this.loggerForm.value).subscribe(result => {
@@ -33,28 +34,15 @@ export class LoggerComponent implements OnInit {
   }
 
 
-
   ngOnInit() {
-    this.loggerForm.valueChanges.subscribe(val => {
-      console.log(val);
-    });
-    this.loggerForm.get('UserName').valueChanges.subscribe(val => {
-      console.log(val);
-    });
+//    this.loggerForm.valueChanges.subscribe(val => {
+//      console.log(val);
+//    });
+//    this.loggerForm.get('UserName').valueChanges.subscribe(val => {
+//      console.log(val);
+//  });
   }
 
-  setForm() {
-    this.loggerForm.setValue({
-      UserName: 'Ruddy',
-      Password: 'Ruddies'
-    });
-  }
-
-  updateForm() {
-    this.loggerForm.patchValue({
-      UserName: 'Leo'
-    });
-  }
 
 
 }

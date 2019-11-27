@@ -21,8 +21,8 @@ export class UserService {
       return this.http.post<User>("https://localhost:44314/api/user", user);
   }
 
-  validateUserNaam(user: User) {
-    return this.http.post<User>("https://localhost:44314/api/user/validateUserNaam", user);
+  validateUserNaam(userName: string) {
+    return this.http.get<User>("https://localhost:44314/api/user/validateUserNaam/" + userName);
 
 }
 

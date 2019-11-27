@@ -13,8 +13,8 @@ import { HomeComponent } from './views/home/home/home.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PollMakenComponent } from './views/poll-maken/poll-maken/poll-maken.component'; 
 import { SecurityInterceptor } from './security/security.interceptor';
-import { VriendenComponent } from './views/vrienden/vrienden/vrienden.component';
-import { AntwoordenComponent } from './views/antwoorden/antwoorden/antwoorden.component';
+import { VriendenPollComponent } from './views/vrienden-poll/vrienden-poll/vrienden-poll.component';
+import { AntwoordenPollComponent } from './views/antwoorden-poll/antwoorden-poll/antwoorden-poll.component';
 import { AntwoordToevoegenComponent } from './views/antwoord-toevoegen/antwoord-toevoegen/antwoord-toevoegen.component';
 import { VriendenLijstComponent } from './views/vrienden-lijst/vrienden-lijst/vrienden-lijst.component';
 import { OverzichtStemmenComponent } from './views/overzicht-stemmen/overzicht-stemmen/overzicht-stemmen.component';
@@ -30,8 +30,8 @@ import { OverzichtStemmenComponent } from './views/overzicht-stemmen/overzicht-s
     RegistratieComponent,
     HomeComponent,
     PollMakenComponent,
-    VriendenComponent,
-    AntwoordenComponent,
+    VriendenPollComponent,
+    AntwoordenPollComponent,
     AntwoordToevoegenComponent,
     VriendenLijstComponent,
     OverzichtStemmenComponent

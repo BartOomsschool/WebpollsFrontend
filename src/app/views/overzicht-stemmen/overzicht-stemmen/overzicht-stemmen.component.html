@@ -1,6 +1,8 @@
-<mat-list-item role="listitem" *ngFor="let a of (antwoorden)">
-    <p>{{a.antwoordText}} {{a.aantalGestemd}}</p>
-</mat-list-item>
+<h2>{{pollNaam}}</h2>
 
+<mat-list-item role="listitem" *ngFor="let a of (antwoorden)">
+    <p>Antwoord: {{a.antwoordText}}</p>
+    <p>Aantal stemmen: {{a.aantalGestemd}}</p>
+</mat-list-item>
 <br/>
 <button mat-raised-button color="primary" type="button" (click)="naarHome()">To Home</button>
