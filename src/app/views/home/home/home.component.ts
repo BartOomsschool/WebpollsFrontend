@@ -99,7 +99,7 @@ export class HomeComponent implements OnInit {
       this.getVerzoeken();
     });
   }
-  
+
 // Deze functie haalt de vrienden op van de ingelogde user.
   getVrienden(){
     this._vriendenService.getVrienden().subscribe(result => {
@@ -107,11 +107,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-
-
   ngOnInit() {
   }
-
-
 
 }
