@@ -22,11 +22,13 @@ export class HomeComponent implements OnInit {
   lengteVerzoeken: number;
   lengteNieuwPoll: number;
   lengteGestemdPoll: number;
+  lengteVrienden: number = 0;
   test = false;
 
   constructor(private _pollService: PollService, private router: Router, private _vriendenService: VriendService) {
     this.getPolls();
     this.getVerzoeken();
+    this.getVrienden();
   }
 
   // Deze functie haalt alle polls op van de ingelogde gebruiker.
@@ -97,6 +99,14 @@ export class HomeComponent implements OnInit {
       this.getVerzoeken();
     });
   }
+  
+// Deze functie haalt de vrienden op van de ingelogde user.
+  getVrienden(){
+    this._vriendenService.getVrienden().subscribe(result => {
+        this.lengteVrienden = result.length;
+    });
+  }
+
 
 
   ngOnInit() {

@@ -39,9 +39,9 @@ export class PollMakenComponent implements OnInit {
   ngOnInit() {
 //    this.pollMakenForm.valueChanges.subscribe(val => {
 //     console.log(val);
-//      }) 
+//      });
 //      this.pollMakenForm.get('Naam').valueChanges.subscribe(val => {
 //        console.log(val);
-//        }) 
+//        });
   }
 }

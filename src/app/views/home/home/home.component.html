@@ -25,6 +25,6 @@
     <button mat-button color="warn" (click)="deletePoll(p.pollID)">delete</button>
 </mat-list-item>
 
-
-<p><button mat-button color="warn" (click)="aanmakenPoll()">Create poll</button></p>
+<p *ngIf="lengteVrienden == 0">You need to make frends before you can make a Poll.</p>
+<p><button mat-button color="warn" (click)="aanmakenPoll()" *ngIf="lengteVrienden > 0">Create poll</button></p>
 <p><button mat-button color="warn" (click)="VriedenLijst()">Add Frends</button></p>
