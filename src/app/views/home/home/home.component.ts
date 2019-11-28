@@ -90,6 +90,7 @@ export class HomeComponent implements OnInit {
     this._vriendenService.accepteerVerzoek(vriend.vriendID, vriend).subscribe(result => {
       console.log(result);
       this.getVerzoeken();
+      this.getVrienden();
     });
   }
 // Deze functie verwijdert de vriend wanneer de ingelogde user het vriendenverzoek verwijdert.
